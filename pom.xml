@@ -78,6 +78,11 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+		<dependency>
+			<groupId>com.cosium.spring.data</groupId>
+			<artifactId>spring-data-jpa-entity-graph</artifactId>
+			<version>1.10.13</version>
+		</dependency>
     </dependencies>
     <build>
         <plugins>
