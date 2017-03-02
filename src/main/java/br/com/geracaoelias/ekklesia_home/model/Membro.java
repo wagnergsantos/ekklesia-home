@@ -18,7 +18,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
@@ -37,7 +36,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@XmlRootElement
 @NamedEntityGraphs(value = {
     @NamedEntityGraph(name = "Membro.default", attributeNodes = {
         @NamedAttributeNode("igreja")

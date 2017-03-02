@@ -6,7 +6,7 @@ import com.cosium.spring.data.jpa.entity.graph.repository.JpaEntityGraphReposito
 
 import br.com.geracaoelias.ekklesia_home.model.Membro;
 
-@RepositoryRestResource
+@RepositoryRestResource(path="membros")
 public interface MembroRepositorio extends JpaEntityGraphRepository<Membro, Long> {	
 	
 }
