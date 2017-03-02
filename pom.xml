@@ -11,8 +11,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.4.RELEASE</version>
         <relativePath/>
+        <version>1.5.1.RELEASE</version>
     </parent>    
     
     <properties>
@@ -36,6 +36,7 @@
 	</developers>
     
     <dependencies>
+    	<!--  SPRING BOOT STARTERS -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -44,23 +45,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-rest-hal-browser</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
+        
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        
+        <!-- Opcional -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-rest-hal-browser</artifactId>
         </dependency>
         <dependency>
         	<groupId>org.springframework.boot</groupId>
@@ -81,9 +76,10 @@
 		<dependency>
 			<groupId>com.cosium.spring.data</groupId>
 			<artifactId>spring-data-jpa-entity-graph</artifactId>
-			<version>1.10.13</version>
+			<version>1.11.00</version>
 		</dependency>
     </dependencies>
+    
     <build>
         <plugins>
             <plugin>
