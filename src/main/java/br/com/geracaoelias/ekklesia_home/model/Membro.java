@@ -15,7 +15,6 @@ import javax.persistence.NamedEntityGraph;
 import javax.persistence.NamedEntityGraphs;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
@@ -82,14 +81,17 @@ public class Membro
 
     @Past
     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Temporal(TemporalType.DATE)
     private Date dataNascimento;
 
     @Past
     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Temporal(TemporalType.DATE)
     private Date dataBatismo;
 
     @Past
     @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Temporal(TemporalType.DATE)
     private Date dataCasamento;
 
     @Column(name = "estadoCivil_id")
@@ -137,7 +139,6 @@ public class Membro
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataModificacao;
 
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY,targetEntity=Igreja.class)
     private Igreja igreja;
     
