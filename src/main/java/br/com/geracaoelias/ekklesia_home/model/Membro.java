@@ -1,8 +1,9 @@
 package br.com.geracaoelias.ekklesia_home.model;
 
-import java.lang.reflect.Method;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
@@ -18,9 +19,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
-import org.hibernate.Hibernate;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -41,12 +39,9 @@ import lombok.Setter;
     })
 })
 @Entity
-public class Membro
+@Access(AccessType.FIELD)
+public class Membro extends BaseEntity<Long>
 {
-
-    @Id
-    @GeneratedValue
-    private Long id;
 
     @NotEmpty
     @Size(min = 4, max = 70)
@@ -130,80 +125,26 @@ public class Membro
 
     @Column(length = 11)
     private String telefoneCelular;
-
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataCriacao;
-
-    @UpdateTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataModificacao;
-
-    @ManyToOne(fetch = FetchType.LAZY,targetEntity=Igreja.class)
-    private Igreja igreja;
     
+    private Igreja igreja;    
+
+    @Id
+    @GeneratedValue
+    @Access(AccessType.PROPERTY)
     @Override
-    public int hashCode()
+    public Long getId()
     {
-        try {
-            final int prime = 31;
-            int result = 1;
-
-            Method m = getClass().getDeclaredMethod("getId");
-            Object obj = m.invoke(this, (Object[]) null);
-            if (obj != null) {
-                int tempHashCode = obj.hashCode();
-                result = prime * result + tempHashCode;
-            }
-
-            return result;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        return id;
     }
 
-    /**
-     * Resolve a questão do 'instanceof/isAssignableFrom' devido ao proxy do Hibernate.
-     */
     @Override
-    public boolean equals(Object obj)
+    public void setId(Long id)
     {
-        try {
-            if (obj == null) {
-                return false;
-            }
-            if ((this == obj)) {
-                return true;
-            }
-
-            // resolve comparacao entre entidades transientes e entidades com proxy
-            Class<?> c1 = Hibernate.getClass(this);
-            Class<?> c2 = Hibernate.getClass(obj);
-
-            if (!c1.equals(c2)) {
-                return false;
-            }
-
-            Method m = getClass().getDeclaredMethod("getId");
-
-            Object myValue = m.invoke(this, (Object[]) null);
-            Object otherValue = m.invoke(obj, (Object[]) null);
-
-            if (myValue != null && otherValue == null)
-                return false;
-
-            if (myValue == null && otherValue != null)
-                return false;
-
-            if (myValue != null && otherValue != null) {
-                if (!myValue.equals(otherValue))
-                    return false;
-            }
-
-            return true;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        super.id = id;        
     }
-    
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    public Igreja getIgreja(){
+        return igreja;
+    }
 }
