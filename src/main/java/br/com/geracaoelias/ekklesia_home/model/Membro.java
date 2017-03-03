@@ -126,6 +126,7 @@ public class Membro extends BaseEntity<Long>
     @Column(length = 11)
     private String telefoneCelular;
     
+    @ManyToOne(fetch = FetchType.LAZY)
     private Igreja igreja;    
 
     @Id
@@ -141,10 +142,5 @@ public class Membro extends BaseEntity<Long>
     public void setId(Long id)
     {
         super.id = id;        
-    }
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    public Igreja getIgreja(){
-        return igreja;
     }
 }

@@ -34,6 +34,7 @@ import lombok.Setter;
 @NamedEntityGraphs(value = {
     @NamedEntityGraph(name = "Igreja.default", attributeNodes = {@NamedAttributeNode("membros")})})
 @Entity
+@Access(AccessType.FIELD)
 public class Igreja extends BaseEntity<Long>
 {
 
@@ -60,8 +61,9 @@ public class Igreja extends BaseEntity<Long>
     @Column(length = 11)
     private String      telefone;
 
-    @Column(name = "estado_sigla", length = 2, nullable = false)
+    
     @Convert(converter = EstadoConverter.class)
+    @Column(name = "estado_sigla", length = 2, nullable = false)    
     private Estado      estado;
 
     private Integer     cep;
@@ -73,9 +75,11 @@ public class Igreja extends BaseEntity<Long>
     private String      cidade;
 
     private String      site;
-
+    
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity=Igreja.class)
     private Igreja      sede;
-
+    
+    @OneToMany(mappedBy="igreja", targetEntity=Membro.class)
     private Set<Membro> membros;
 
     @Id
@@ -93,13 +97,4 @@ public class Igreja extends BaseEntity<Long>
         super.id = id;        
     }
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity=Igreja.class)
-    public Igreja getSede(){
-        return sede;
     }
-    
-    @OneToMany(mappedBy="igreja", targetEntity=Membro.class)
-    public Set<Membro> getMembros(){
-        return membros;        
-    }
-}
