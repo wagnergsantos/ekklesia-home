@@ -19,7 +19,7 @@ insert into estado_civil (id,descricao) values (4, 'Viúvo');
 
 insert into situacao_membro (id,descricao) values (1, 'Ativo');
 insert into situacao_membro (id,descricao) values (2, 'Afastado');
-insert into situacao_membro (id,descricao) values (3, 'Transferido');)
+insert into situacao_membro (id,descricao) values (3, 'Transferido');
 
 
 
