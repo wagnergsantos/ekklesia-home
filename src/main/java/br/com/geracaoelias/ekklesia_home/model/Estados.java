@@ -6,7 +6,7 @@ import br.com.geracaoelias.ekklesia_home.util.EnumUtils;
 import lombok.Getter;
 
 @Getter
-public enum Estado
+public enum Estados
 {
     /**
      * Nome: Acre, Sigla: AC
@@ -117,26 +117,26 @@ public enum Estado
      */
     TOCANTINS("Tocantins", "TO");
 
-    private static final EnumUtils.EnumProperty<Estado, String> ENUM_PROP;
+    private static final EnumUtils.EnumProperty<Estados, String> ENUM_PROP;
 
-    private static final Map<String, Estado> LOOKUP_MAP;
+    private static final Map<String, Estados> LOOKUP_MAP;
 
     static {
-        ENUM_PROP = new EnumUtils.EnumProperty<Estado, String>()
+        ENUM_PROP = new EnumUtils.EnumProperty<Estados, String>()
         {
 
             @Override
-            public String getValue(Estado type)
+            public String getValue(Estados type)
             {
                 return type.getSigla();
             }
 
         };
 
-        LOOKUP_MAP = EnumUtils.createLookup(Estado.class, ENUM_PROP);
+        LOOKUP_MAP = EnumUtils.createLookup(Estados.class, ENUM_PROP);
     }
 
-    public static Estado fromValue(String sigla)
+    public static Estados fromValue(String sigla)
     {
         return LOOKUP_MAP.get(sigla);
     }
@@ -151,7 +151,7 @@ public enum Estado
      * @param nome
      * @param sigla
      */
-    private Estado(String nome, String sigla)
+    private Estados(String nome, String sigla)
     {
         this.nome = nome;
         this.sigla = sigla;

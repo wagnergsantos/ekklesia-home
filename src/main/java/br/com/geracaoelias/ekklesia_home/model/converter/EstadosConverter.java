@@ -3,22 +3,22 @@ package br.com.geracaoelias.ekklesia_home.model.converter;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-import br.com.geracaoelias.ekklesia_home.model.Estado;
+import br.com.geracaoelias.ekklesia_home.model.Estados;
 
 @Converter(autoApply = true)
-public class EstadoConverter implements AttributeConverter<Estado, String>
+public class EstadosConverter implements AttributeConverter<Estados, String>
 {
 
     @Override
-    public String convertToDatabaseColumn(Estado estado)
+    public String convertToDatabaseColumn(Estados estado)
     {       
         return estado != null ? estado.getSigla() : null;
     }
 
     @Override
-    public Estado convertToEntityAttribute(String sigla)
+    public Estados convertToEntityAttribute(String sigla)
     {
-        return Estado.fromValue(sigla);
+        return Estados.fromValue(sigla);
     }
 
 }

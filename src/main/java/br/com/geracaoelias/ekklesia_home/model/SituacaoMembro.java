@@ -6,8 +6,9 @@ import br.com.geracaoelias.ekklesia_home.util.EnumUtils;
 
 public enum SituacaoMembro
 {
-    AFASTADO(1, "Afastado"),
-    ATIVO(2, "Ativo"),
+
+    ATIVO(1, "Ativo"),
+    AFASTADO(2, "Afastado"),
     TRANSFERIDO(3, "Transferido");
 
     private static final EnumUtils.EnumProperty<SituacaoMembro, Integer> ENUM_PROP;

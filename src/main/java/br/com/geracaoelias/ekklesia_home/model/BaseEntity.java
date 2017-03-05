@@ -1,34 +1,19 @@
 package br.com.geracaoelias.ekklesia_home.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Version;
 
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import com.google.common.base.MoreObjects;
 
 @MappedSuperclass
 public abstract class BaseEntity<ID extends Serializable> implements Entity<ID>
-{
+{    
+
+    private static final long serialVersionUID = -6182333182152696568L;
     
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    protected Date dataCriacao;
-
-    @UpdateTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    protected Date dataModificacao;
-
-    @Version
-    protected Long version;
-
     protected ID id;
 
     @Override
@@ -65,35 +50,5 @@ public abstract class BaseEntity<ID extends Serializable> implements Entity<ID>
         }
 
         return this.getId().equals(((Entity<?>) obj).getId());
-    }
-    
-    public Date getDataCriacao()
-    {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(Date dataCriacao)
-    {
-        this.dataCriacao = dataCriacao;
-    }
-
-    public Date getDataModificacao()
-    {
-        return dataModificacao;
-    }
-
-    public void setDataModificacao(Date dataModificacao)
-    {
-        this.dataModificacao = dataModificacao;
-    }
-
-    public Long getVersion()
-    {
-        return version;
-    }
-
-    public void setVersion(Long version)
-    {
-        this.version = version;
     }
 }

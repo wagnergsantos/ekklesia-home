@@ -26,7 +26,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import br.com.geracaoelias.ekklesia_home.model.converter.CargoConverter;
 import br.com.geracaoelias.ekklesia_home.model.converter.EscolaridadeConverter;
 import br.com.geracaoelias.ekklesia_home.model.converter.EstadoCivilConverter;
-import br.com.geracaoelias.ekklesia_home.model.converter.EstadoConverter;
+import br.com.geracaoelias.ekklesia_home.model.converter.EstadosConverter;
 import br.com.geracaoelias.ekklesia_home.model.converter.SituacaoMembroConverter;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,8 +40,9 @@ import lombok.Setter;
 })
 @Entity
 @Access(AccessType.FIELD)
-public class Membro extends BaseEntity<Long>
+public class Membro extends CompleteBaseEntity<Long>
 {
+    private static final long serialVersionUID = 6676381658297918435L;
 
     @NotEmpty
     @Size(min = 4, max = 70)
@@ -59,8 +60,8 @@ public class Membro extends BaseEntity<Long>
     private String cidade;
 
     @Column(name = "estado_sigla", length = 2, nullable = false)
-    @Convert(converter = EstadoConverter.class)
-    private Estado estado;
+    @Convert(converter = EstadosConverter.class)
+    private Estados estado;
 
     @Size(min = 4, max = 60)
     private String pais;

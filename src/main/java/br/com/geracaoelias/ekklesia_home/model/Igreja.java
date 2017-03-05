@@ -25,7 +25,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import br.com.geracaoelias.ekklesia_home.model.converter.EstadoConverter;
+import br.com.geracaoelias.ekklesia_home.model.converter.EstadosConverter;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,8 +35,9 @@ import lombok.Setter;
     @NamedEntityGraph(name = "Igreja.default", attributeNodes = {@NamedAttributeNode("membros")})})
 @Entity
 @Access(AccessType.FIELD)
-public class Igreja extends BaseEntity<Long>
+public class Igreja extends CompleteBaseEntity<Long>
 {
+    private static final long serialVersionUID = -8546627499827286971L;
 
     @NotEmpty
     @Size(min = 4, max = 70)
@@ -62,9 +63,9 @@ public class Igreja extends BaseEntity<Long>
     private String      telefone;
 
     
-    @Convert(converter = EstadoConverter.class)
+    @Convert(converter = EstadosConverter.class)
     @Column(name = "estado_sigla", length = 2, nullable = false)    
-    private Estado      estado;
+    private Estados      estado;
 
     private Integer     cep;
 
