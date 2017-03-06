@@ -5,6 +5,9 @@ drop table estado_civil if exists;
 drop table situacao_membro if exists;
 drop table igreja if exists;
 drop table membro if exists;
+drop table usuario if exists;
+drop table regra if exists;
+drop table usuarios_regras if exists;
 
 create table cargo (
 	id integer not null, 
@@ -85,3 +88,23 @@ create table membro (
 	primary key (id)
 );
 alter table membro add constraint FKsd3twkt0whk5gb4m8g2qdj3xd foreign key (igreja_id) references igreja;
+
+create table regra (
+	id bigint not null, 
+	nome varchar(255), 
+	primary key (id)
+);
+create table usuario (
+	id bigint not null, 
+	enabled boolean, 
+	password varchar(255), 
+	username varchar(255), 
+	primary key (id)
+);
+create table usuarios_regras (
+	usuario_id bigint not null, 
+	regra_id bigint not null, 
+	primary key (usuario_id, regra_id)
+);
+alter table usuarios_regras add constraint FKh147pt5ydv9s9wc4dhsweraq2 foreign key (regra_id) references regra;
+alter table usuarios_regras add constraint FKjmxsksnxhynad4m28nyrtqs39 foreign key (usuario_id) references usuario;

@@ -50,3 +50,14 @@ insert into estados (sigla,nome) values ('SC','Santa Catarina');
 insert into estados (sigla,nome) values ('SE','Sergipe');
 insert into estados (sigla,nome) values ('SP','São Paulo');
 insert into estados (sigla,nome) values ('TO','Tocantins');
+
+
+insert into usuario (id,username,password,enabled) values (1,'user','$2a$10$Fi2B/1itKSBWoLnc/esxsOTceDS2.OvSolTSXpGQqxyYtilV2oFkK', true);
+insert into usuario (id,username,password,enabled) values (2,'admin','$2a$10$C1QWybugQe/561eNDbkix.tzz5WcO6pDqBo9sW9W.FxfEtazVo/la', true);
+
+insert into regra (id,nome) values (1, 'ROLE_USER');
+insert into regra (id,nome) values (2, 'ROLE_ADMIN');
+
+insert into usuarios_regras (usuario_id, regra_id) values (1, 1);
+insert into usuarios_regras (usuario_id, regra_id) values (2, 1);
+insert into usuarios_regras (usuario_id, regra_id) values (2, 2);
