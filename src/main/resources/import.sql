@@ -52,8 +52,10 @@ insert into estados (sigla,nome) values ('SP','São Paulo');
 insert into estados (sigla,nome) values ('TO','Tocantins');
 
 
-insert into usuario (id,username,password,enabled) values (1,'user','$2a$10$Fi2B/1itKSBWoLnc/esxsOTceDS2.OvSolTSXpGQqxyYtilV2oFkK', true);
-insert into usuario (id,username,password,enabled) values (2,'admin','$2a$10$C1QWybugQe/561eNDbkix.tzz5WcO6pDqBo9sW9W.FxfEtazVo/la', true);
+--insert into usuario (id,username,password,enabled) values (1,'user','$2a$10$XSkCB4gy/BIAcZj2oDwzW.Yi6P.6zmzZtZvyNrZ7VGuWJpyRvkfgy', true);
+--insert into usuario (id,username,password,enabled) values (2,'admin','$2a$10$/Mocf1CdVUNxSp55VjhIeuHc5cPQACTvpyYf822UFWab/P1/YgQ8.', true);
+insert into usuario (id,username,password,enabled) values (2,'admin','admin', true);
+insert into usuario (id,username,password,enabled) values (1,'user','user', true);
 
 insert into regra (id,nome) values (1, 'ROLE_USER');
 insert into regra (id,nome) values (2, 'ROLE_ADMIN');
