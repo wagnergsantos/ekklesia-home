@@ -49,7 +49,7 @@ public class Membro extends CompleteBaseEntity<Long>
     private String nome;
 
     @Size(min = 4, max = 70)
-    private String endereço;
+    private String endereco;
 
     private Integer cep;
 

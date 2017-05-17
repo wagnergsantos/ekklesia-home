@@ -62,6 +62,8 @@ public class Igreja extends CompleteBaseEntity<Long>
     @Column(length = 11)
     private String      telefone;
 
+    @Size(min = 4, max = 70)
+    private String endereco;
     
     @Convert(converter = EstadosConverter.class)
     @Column(name = "estado_sigla", length = 2, nullable = false)    
