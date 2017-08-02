@@ -12,7 +12,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <relativePath/>
-        <version>1.5.3.RELEASE</version>
+        <version>1.5.6.RELEASE</version>
     </parent>    
     
     <properties>
@@ -62,7 +62,7 @@
 		<dependency>
 			<groupId>com.cosium.spring.data</groupId>
 			<artifactId>spring-data-jpa-entity-graph</artifactId>
-			<version>1.11.00</version>
+			<version>1.11.02</version>
 		</dependency>        
         
         <!--  Outras dependencias -->
